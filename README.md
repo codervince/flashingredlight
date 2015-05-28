@@ -1,13 +1,7 @@
-# flask-blog
+# Basic Blog App for Flashing Red Light
 
-simple blog ~~engine~~ written on [Flask](http://flask.pocoo.org/)
+simple blog ~~engine~~ written in [Flask](http://flask.pocoo.org/)
 
-# Demo:
-you can try it [here](http://flask-blog-demo.herokuapp.com/)
-
-login:demo
-
-pass:demo
 
 # Under the hood:
 - [Python](http://python.org/)
@@ -20,7 +14,7 @@ pass:demo
 - [Polymer](http://www.polymer-project.org)
 
 
-# What it can:
+# What it can do:
 - create/preview/update/delete articles;
 - create/update/delete users;
 - search;
@@ -37,7 +31,7 @@ pass:demo
 
 
 # Installation:
-`git clone https://github.com/dmaslov/flask-blog.git`
+`git clone https://github.com/thisrepo/git`
 
 `cd flask-blog`
 
@@ -118,5 +112,3 @@ The word will be replaced with a working gist tag.
 ![insert_image](http://i.imgur.com/suxPgI0.png)
 
 
-# Upd:
-Don't need to highlight text to add a link or an image anymore. Now you can simply click some tag in the editor menu and put a link. The 'Markdown' tag will be created automatically with a highlighted temporary description. The existing pasting algorithm works as it did before.
