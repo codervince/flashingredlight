@@ -1,11 +1,12 @@
 import pymongo
 import os
 
-CONNECTION_STRING = "mongodb://localhost"  # replace it with your settings
+# CONNECTION_STRING = "mongodb://localhost"  # replace it with your settings
+CONNECTION_STRING = "mongodb://test1:test1@ds041032.mongolab.com:41032/flashingredlight"
 CONNECTION = pymongo.MongoClient(CONNECTION_STRING)
 
 '''Leave this as is if you dont have other configuration'''
-DATABASE = CONNECTION.blog
+DATABASE = CONNECTION.flashingredlight
 POSTS_COLLECTION = DATABASE.posts
 USERS_COLLECTION = DATABASE.users
 SETTINGS_COLLECTION = DATABASE.settings
