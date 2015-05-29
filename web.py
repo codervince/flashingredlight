@@ -2,6 +2,7 @@ import cgi
 import os
 from flask import Flask, render_template, abort, url_for, request, flash, session, redirect
 from flaskext.markdown import Markdown
+from flask.ext.moment import Moment
 from mdx_github_gists import GitHubGistExtension
 from mdx_strike import StrikeExtension
 from mdx_quote import QuoteExtension
@@ -20,6 +21,9 @@ md.register_extension(GitHubGistExtension)
 md.register_extension(StrikeExtension)
 md.register_extension(QuoteExtension)
 md.register_extension(MultilineCodeExtension)
+
+moment = Moment(app)
+
 app.config.from_object('config')
 
 
@@ -30,7 +34,7 @@ def index(page):
     posts = postClass.get_posts(int(app.config['PER_PAGE']), skip)
     count = postClass.get_total_count()
     pag = pagination.Pagination(page, app.config['PER_PAGE'], count)
-    return render_template('index.html', posts=posts['data'], pagination=pag, meta_title=app.config['BLOG_TITLE'])
+    return render_template('index.html', posts=posts['data'], pagination=pag, meta_title=app.config['BLOG_TITLE'], current_time=datetime.utcnow())
 
 
 @app.route('/tag/<tag>', defaults={'page': 1})

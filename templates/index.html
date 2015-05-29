@@ -6,8 +6,9 @@
 			{%- block nav -%}{%- include 'nav.html' -%}{%- endblock -%}
 			<div class="container">
 				{%- block body -%}
-					<link rel="jumpout" type="image/jpg" href="{{ url_for('static', filename='img/st_jump_out.jpg') }}">
-
+					<link type="image/jpg" href="{{ url_for('static', filename='img/st_jump_out.jpg') }}">
+					<p>Your time is currently: {{moment(current_time).format('LLL')  }}</p>
+					<p>Next race will begin: XXX hours from now </p> 
 					{%- if posts -%}
 						{%- for post in posts -%}
 							<div class="post clearfix">
@@ -70,24 +71,13 @@
 				{% endif %}
 			</div>
 		</div>
+		{%- include 'disqus.html' -%}
 		{%- include 'footer.html' -%}
-		{%- block content -%}
-			DISQUS HERE
-				<div id="disqus_thread"></div>
-				<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-		{%- endblock -%}
 		{%- block scripts -%}
 			<script src="//codeorigin.jquery.com/jquery-2.0.3.min.js"></script>
 			<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 			{%- block additional_js -%}
-					<script type="text/javascript">
-				    var disqus_shortname = 'flashingredlight';
-				    (function() {
-				        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-				        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-				        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-				    })();
-					</script>
+			{{moment.include_moment()}}
 			{%- endblock -%}
 			<script src="{{ url_for('static', filename='js/main.js') }}"></script>
 		{%- endblock -%}
