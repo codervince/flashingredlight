@@ -7,10 +7,7 @@
 				<div class="col-lg-8">
 					<div class="page-header">
 						<h1>{{ post['title'] | safe }}</h1>
-						<p>
-						<span class="icon-time">&nbsp;</span>
-						<i>Posted on {{ post['date'] |formatdate }} by {{ post['author'] }}</i></p>
-						{{ date.today().strftime("%Y%m%d%h:%M") }}
+						<p><span class="icon-time">&nbsp;</span><i>Posted on {{ post['date'] |formatdate }} by {{ post['author'] }}</i></p>
 						<div class="social row-fluid">
 					        <!-- AddThis Button BEGIN -->
 							<div class="addthis_toolbox addthis_default_style addthis_16x16_style">
@@ -42,6 +39,5 @@
 		</div>
 	{%- endif -%}
 	{%- include 'sidebar.html' -%}
-
 {%- endblock -%}
 {%- block additional_js -%}<script src="{{ url_for('static', filename='js/lightbox-2.6.min.js') }}"></script>{%- endblock -%}
